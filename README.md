@@ -1,5 +1,5 @@
 ### Elastic Pump
-It's a project meant to provide an easy way of pumping a lot of data into an ElasticSearch cluster in order to stress test the ingestion capabilities of your ElasticSearch setup.
+It's a project meant to provide an easy way of pumping a lot of data into an ElasticSearch cluster in order to test the ingestion capabilities of your ElasticSearch setup.
 You need to have java installed and the ElasticSearch setup needs to be accessible through the network.
 
 #### Usage
