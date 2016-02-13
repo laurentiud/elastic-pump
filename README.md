@@ -11,13 +11,14 @@ Where we have:
 **eHost - optional, the default is 127.0.0.1**, the host or IP of the ElasticSearch node we will connect to.  
 **ePort - optional, the default is 9300**, port used to connect to ElasticSearch node.  
 **eClusterName - optional, the default is elasticsearch**, the name of the ElasticSearch cluster.  
-**eIndex - optional, the default index is pumptestdata**, define in what index should the inserts go. MUST be lowercasel.  
+**eIndex - optional, the default index is pumptestdata**, define in what index should the inserts go. MUST be lowercase.  
 **insertsInBatch - optional, the default is 200**, how many elements to be inserted in a single batch.  
 **keepAliveInSeconds- optional, the default is 3600 seconds**, for how many seconds should the application be alive.  
 
 #### Examples
 So depending on what your goals are, here are a few examples.  
-- **Basic insert on localhost**. Will pump data into localhost Elasticsearch node, on port 9300, 200 elements per batch, into pumptestdata index, for 3600 seconds
+
+- Basic insert on localhost. Will pump data into localhost Elasticsearch node, on port 9300, 200 elements per batch, into pumptestdata index, for 3600 seconds
 ```
 java -jar ElasticPump.jar
 ```  
