@@ -17,7 +17,7 @@ Where we have:
 
 #### Examples
 So depending on what your goals are, here are a few examples.  
-- **Basic insert on localhost**. Will pump data into 192.168.192.168 Elasticsearch node, on port 9300, 200 elements per batch, into pumptestdata index, for 3600 seconds
+- **Basic insert on localhost**. Will pump data into localhost Elasticsearch node, on port 9300, 200 elements per batch, into pumptestdata index, for 3600 seconds
 ```
 java -jar ElasticPump.jar
 ```  
