@@ -1,6 +1,6 @@
 ### Elastic Pump
 It's a project meant to provide an easy way of pumping data into an ElasticSearch cluster for exploring it or to test the ElasticSearch setup.
-You need to have java installed and the ElasticSearch setup needs to be accessible through the network.
+You need to have java installed and the ElasticSearch (2.3.0) setup needs to be accessible through the network.
 
 #### Usage
 Run Main.java
@@ -9,11 +9,11 @@ Or build ElasticPump.jar file and use the starting command:
 java -jar ElasticPump.java
 ```
 Where you can add:
-**host=127.0.0.1, the host or IP of the ElasticSearch node we will connect to.
-**port=9300, port used to connect to ElasticSearch node.
-**clusterName=elasticsearch, the name of the ElasticSearch cluster.
-**index=pumptestdata, define in what index should the inserts go. MUST be lowercase.
-**inserts=200, how many elements to be inserted in a single batch.
+* host=127.0.0.1, the host or IP of the ElasticSearch node we will connect to.
+* port=9300, port used to connect to ElasticSearch node.
+* clusterName=elasticsearch, the name of the ElasticSearch cluster.
+* index=pumptestdata, define in what index should the inserts go. MUST be lowercase.
+* inserts=200, how many elements to be inserted in a single batch.
 
 #### Examples
 So depending on what your goals are, here are a few examples.  
