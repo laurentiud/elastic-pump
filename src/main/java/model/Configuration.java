@@ -1,45 +1,53 @@
 package model;
 
+import java.io.IOException;
+import java.io.StringReader;
+import java.text.MessageFormat;
+import java.util.Properties;
+
 public class Configuration {
 
-    private String eHost = "127.0.0.1";
-    private int ePort = 9300;
-    private String eClusterName = "elasticsearch";
-    private String eIndex = "pumptestdata";
-    private int insertsInBatch = 200;
-    private int keepAliveInSeconds = 3600;
+    private String host = "127.0.0.1";
+    private int port = 9300;
+    private String clusterName = "elasticsearch";
+    private String index = "pumptestdata";
+    private int inserts = 200;
 
-    public Configuration(String[] args){
-        if (args.length > 0)
-            eHost = args[0];
-        if (args.length > 1)
-            ePort = Integer.parseInt(args[1]);
-        if (args.length > 2)
-            eClusterName = args[2];
-        if (args.length > 3)
-            eIndex = args[3].toLowerCase();
-        if (args.length > 4)
-            insertsInBatch = Integer.parseInt(args[4]);
-        if (args.length > 5)
-            keepAliveInSeconds = Integer.parseInt(args[5]);
+    public Configuration(String[] args) {
+        try {
+            Properties props = new Properties();
+            props.load(new StringReader(String.join("\n", args)));
+
+            this.host = props.getProperty("host", host);
+            this.port = Integer.parseInt(props.getProperty("port", "" + port));
+            this.clusterName = props.getProperty("clusterName", clusterName);
+            this.index = props.getProperty("index", index);
+            this.inserts = Integer.parseInt(props.getProperty("inserts", "" + inserts));
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+        System.out.println(this);
     }
 
     public String host(){
-        return eHost;
+        return host;
     }
     public int port() {
-        return ePort;
+        return port;
     }
     public String clusterName() {
-        return eClusterName;
+        return clusterName;
     }
     public String index() {
-        return eIndex;
+        return index;
     }
     public int inserts() {
-        return insertsInBatch;
+        return inserts;
     }
-    public int keepAliveSeconds() {
-        return keepAliveInSeconds;
+
+    @Override
+    public String toString() {
+        return MessageFormat.format("Configuration: host={0}, port={1}, clusterName={2}, index={3} and inserts={4}",
+                host, port, clusterName, index, inserts);
     }
 }

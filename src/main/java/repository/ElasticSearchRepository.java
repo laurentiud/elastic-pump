@@ -54,7 +54,7 @@ public class ElasticSearchRepository {
                         .field("Email", fakeStudent.internet().emailAddress())
                         .field("Enrollment date", fakeStudent.date().past(1000, TimeUnit.DAYS))
                         .field("Credit card", fakeStudent.finance().creditCard())
-                        .field("Background", fakeStudent.lorem().words(100))
+                        .field("Background", fakeStudent.lorem().paragraph(20))
                 ));
                 sizeOfBulk--;
             }
