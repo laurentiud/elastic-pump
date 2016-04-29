@@ -3,8 +3,7 @@ It's a project meant to provide an easy way of pumping data into an ElasticSearc
 You need to have java installed and the ElasticSearch (2.3.0) setup needs to be accessible through the network.
 
 #### Usage
-Run Main.java
-Or build ElasticPump.jar file and use the starting command:
+**Run Main.java** or build ElasticPump.jar file and use the starting command:
 ```
 java -jar ElasticPump.java
 ```
