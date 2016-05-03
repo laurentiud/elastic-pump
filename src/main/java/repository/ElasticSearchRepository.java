@@ -41,24 +41,16 @@ public class ElasticSearchRepository {
         return instance;
     }
 
-    public void bulkInsertRandomStudents(Configuration conf, Faker fakeStudent) {
-        if (conf.inserts() < 1) return;
-        int sizeOfBulk = conf.inserts();
-
+    public void insertRandomStudent(Configuration conf, Faker fakeStudent) {
         try {
-            BulkRequestBuilder bulk = client.prepareBulk();
-            while (sizeOfBulk > 0) {
-                bulk.add(client.prepareIndex(conf.index(), "data").setSource(jsonBuilder().startObject()
-                        .field("First name", fakeStudent.name().firstName())
-                        .field("Last name", fakeStudent.name().lastName())
-                        .field("Email", fakeStudent.internet().emailAddress())
-                        .field("Enrollment date", fakeStudent.date().past(1000, TimeUnit.DAYS))
-                        .field("Credit card", fakeStudent.finance().creditCard())
-                        .field("Background", fakeStudent.lorem().paragraph(20))
-                ));
-                sizeOfBulk--;
-            }
-            bulk.execute().actionGet();
+            client.prepareIndex(conf.index(), "data").setSource(jsonBuilder().startObject()
+                    .field("First name", fakeStudent.name().firstName())
+                    .field("Last name", fakeStudent.name().lastName())
+                    .field("Email", fakeStudent.internet().emailAddress())
+                    .field("Enrollment date", fakeStudent.date().past(1000, TimeUnit.DAYS))
+                    .field("Credit card", fakeStudent.finance().creditCard())
+                    .field("Background", fakeStudent.lorem().paragraph(20))
+            ).get();
         } catch (IOException e) {
             e.printStackTrace();
         }

@@ -16,6 +16,6 @@ public class Main {
         Faker fakeStudent = new Faker();
 
         IntStream.range(1, conf.inserts())
-                .forEach(i -> elasticRepository.bulkInsertRandomStudents(conf, fakeStudent));
+                .forEach(i -> elasticRepository.insertRandomStudent(conf, fakeStudent));
     }
 }
